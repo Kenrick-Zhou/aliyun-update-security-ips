@@ -1,0 +1,31 @@
+Aliyun:
+  AK: xxx  # Access Key ID
+  SK: xxx  # Access Key Secret
+
+RDS:
+  AutoUpdate:  # 自动定时更新配置
+    ArrayName: home  # 白名单分组名称（要提前创建好）
+    Interval: 1000  # 间隔多少秒检查一次
+    DBInstanceIds: &all_instance  # 要修改的RDS实例ID
+      - rm-xxx
+  ManualUpdate:  # 手动更新配置
+    ArrayName: my
+    DBInstanceIds: # 要修改的RDS实例ID
+      *all_instance
+
+IPCheckList:
+  - https://ip.clang.cn/
+  - http://icanhazip.com
+  - https://ipecho.net/plain
+  - http://whatismyip.akamai.com/
+  - https://tnx.nl/ip
+  - https://www.trackip.net/ip
+  - http://ip.cip.cc/
+
+PushDeer:
+  key:
+    network: xxx
+
+log:
+  path_info: ~/log/aliyun-update-security-ips/info
+  path_err: ~/log/aliyun-update-security-ips/err
