@@ -39,6 +39,7 @@ def update(db_instances_ids, array_name):
                             runtime
                         )
                         loginfo(f'RDS IP白名单分组{array_name}成功修改为：{ip}')
+                        pushdeer_md(f'🔃更新IP🔃:{ip}')
                     else:
                         break
         except Exception as e:

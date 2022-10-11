@@ -13,7 +13,7 @@ RDS:
     DBInstanceIds: # 要修改的RDS实例ID
       *all_instance
 
-IPCheckList:
+IPCheckList:  # 查看本机公网IP的网址
   - https://ip.clang.cn/
   - http://icanhazip.com
   - https://ipecho.net/plain
@@ -22,10 +22,10 @@ IPCheckList:
   - https://www.trackip.net/ip
   - http://ip.cip.cc/
 
-PushDeer:
+PushDeer:  # 给手机发推送通知用的，可忽略（需自行删除两行代码）
   key:
     network: xxx
 
-log:
+log:  # 日志存放位置（会自动创建相应目录）
   path_info: ~/log/aliyun-update-security-ips/info
   path_err: ~/log/aliyun-update-security-ips/err
