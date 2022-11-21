@@ -10,7 +10,7 @@ from alibabacloud_tea_util import models as util_models
 
 ############################################
 # 读取配置文件
-yamlPath = 'config.yml'
+yamlPath = f'{os.path.split(os.path.realpath(__file__))[0]}/config.yml'
 with open(yamlPath, 'rb') as f:
     config = yaml.safe_load(f)
     CFG_ALY = config['Aliyun']
@@ -44,6 +44,8 @@ runtime = util_models.RuntimeOptions(read_timeout=5000, connect_timeout=3000)
 
 ############################################
 # 配置日志
+# 日志目录初始化
+os.makedirs(os.path.expanduser(CFG_LOG['path_dir']), exist_ok=True)
 # 基础日志配置
 logging.Formatter.converter = time.localtime
 logging.basicConfig(
@@ -54,10 +56,8 @@ logging.basicConfig(
 
 #######################
 # INFO日志配置
-s = os.path.expanduser(CFG_LOG['path_info'])
-os.makedirs(s[:s.rfind('/')], exist_ok=True)
 info_handler = logging.handlers.TimedRotatingFileHandler(
-    s, when='D', interval=1, backupCount=90,
+    os.path.expanduser(CFG_LOG['path_info']), when='D', interval=1, backupCount=90,
 )
 info_handler.suffix = '%Y%m%d.log'
 info_formatter = logging.Formatter('%(asctime)s %(levelname)s: %(message)s')
@@ -72,10 +72,8 @@ def loginfo(msg, *args, **kwargs): logger_info.info(msg, *args, **kwargs)
 
 #######################
 # ERROR日志配置
-s = os.path.expanduser(CFG_LOG['path_err'])
-os.makedirs(s[:s.rfind('/')], exist_ok=True)
 err_handler = logging.handlers.TimedRotatingFileHandler(
-    s, when='D', interval=1, backupCount=90,
+    os.path.expanduser(CFG_LOG['path_err']), when='D', interval=1, backupCount=90,
 )
 err_handler.suffix = '%Y%m%d.log'
 err_formatter = logging.Formatter('%(asctime)s %(levelname)s: ' + '=' * 13 + '!!! %(message)s !!!' + '=' * 13)

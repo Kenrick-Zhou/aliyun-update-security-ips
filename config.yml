@@ -27,5 +27,6 @@ PushDeer:  # 给手机发推送通知用的，可忽略（需自行删除两行�
     network: xxx
 
 log:  # 日志存放位置（会自动创建相应目录）
+  path_dir: ~/log/aliyun-update-security-ips
   path_info: ~/log/aliyun-update-security-ips/info
   path_err: ~/log/aliyun-update-security-ips/err
