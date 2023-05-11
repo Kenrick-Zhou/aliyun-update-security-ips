@@ -1,0 +1,7 @@
+alibabacloud_rds20140815==2.1.1
+alibabacloud-alidns20150109==3.0.7
+alibabacloud_tea_openapi==0.3.7
+alibabacloud_tea_util==0.3.8
+alibabacloud_tea==0.2.9
+pypushdeer==0.0.3
+PyYAML==6.0

@@ -1,0 +1,42 @@
+Aliyun:
+  AK: xxx  # Access Key ID
+  SK: xxx  # Access Key Secret
+
+check_interval: 100  # 检查间隔（秒）
+
+DNS:
+  Domain_and_RR:
+    - abc.com:  # 域名
+        - test1  # 主机记录
+        - test2  # 主机记录
+    - xyz.cn:
+        - test1
+        - test2
+
+RDS:
+  AutoUpdate:  # 自动定时更新配置
+    ArrayName: home  # 白名单分组名称（要提前创建好）
+    DBInstanceIds: &all_instance  # 要修改的RDS实例ID
+      - rm-xxx
+  ManualUpdate:  # 手动更新配置
+    ArrayName: my
+    DBInstanceIds: # 要修改的RDS实例ID
+      *all_instance
+
+IPCheckList:  # 查看本机公网IP的网址
+  - https://ip.clang.cn/
+  - http://icanhazip.com
+  - https://ipecho.net/plain
+  - http://whatismyip.akamai.com/
+  - https://tnx.nl/ip
+  - https://www.trackip.net/ip
+  - http://ip.cip.cc/
+
+PushDeer:  # 给手机发推送通知用的，可忽略（需自行删除两行代码）
+  key:
+    network: xxx
+
+log:  # 日志存放位置（会自动创建相应目录）
+  path_dir: ~/log/aliyun-update-security-ips
+  path_info: ~/log/aliyun-update-security-ips/info
+  path_err: ~/log/aliyun-update-security-ips/err
