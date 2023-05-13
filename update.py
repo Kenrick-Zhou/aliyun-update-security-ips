@@ -22,8 +22,9 @@ def get_ip():
             pass
 
     if ip is None:
-        logerr('Cannot get IP, Check your network!')
-        pushdeer_md('# ⚠️断网⚠️')
+        print('!!!!!!获取当前IP为空，可能断网!!!!!!')
+        logerr('Cannot get IP, Check your network!!!!!')
+        # pushdeer_md('# ⚠️断网⚠️')
     else:
         logdebug(ip)
 
