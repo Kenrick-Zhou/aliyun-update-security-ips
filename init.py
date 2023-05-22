@@ -40,12 +40,12 @@ aliyun_config = open_api_models.Config(access_key_id=CFG_ALY['AK'], access_key_s
 # 日志目录初始化
 os.makedirs(os.path.expanduser(CFG_LOG['path_dir']), exist_ok=True)
 # 基础日志配置
-logging.Formatter.converter = time.localtime
-logging.basicConfig(
-    level=logging.WARNING,
-    format='%(asctime)s %(levelname)s %(name)s: \n%(message)s',
-    datefmt='%Y-%m-%d %H:%M:%S',
-)
+# logging.Formatter.converter = time.localtime
+# logging.basicConfig(
+#     level=logging.WARNING,
+#     format='%(asctime)s %(levelname)s %(name)s: \n%(message)s',
+#     datefmt='%Y-%m-%d %H:%M:%S',
+# )
 
 #######################
 # INFO日志配置

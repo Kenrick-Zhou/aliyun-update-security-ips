@@ -8,10 +8,10 @@ if __name__ == '__main__':
     while True:
         ip = get_ip()
         if ip is not None:
-            is_update_rds = update_rds(ip)
-            is_update_dns = update_dns(ip)
-            if is_update_rds or is_update_dns:
-                pushdeer_md(f'# 🔃IP🔃 {ip}', f'{CFG_DNS}\n\n{CFG_RDS_A}')
+            if update_rds(ip):
+                pushdeer_md(f'# 🔃RDS IP🔃 {ip}', f'{CFG_RDS_A}')
+            if update_dns(ip):
+                pushdeer_md(f'# 🔃DNS IP🔃 {ip}', f'{CFG_DNS}')
         loginfo(f'one loop over, will sleep {CFG_INTERVAL}s')
         time.sleep(CFG_INTERVAL)
 

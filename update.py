@@ -1,4 +1,5 @@
 import requests
+from datetime import datetime
 from alibabacloud_tea_util import models as util_models
 from alibabacloud_rds20140815 import models as rds_20140815_models
 from alibabacloud_rds20140815.client import Client as Rds20140815Client
@@ -17,6 +18,7 @@ def get_ip():
             r = requests.get(url, timeout=5)
             if r.status_code == 200:
                 ip = r.text.strip()
+                print(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} 当前IP：{ip} URL：{url}")
                 break
         except:
             pass
@@ -59,6 +61,7 @@ def update_rds(ip):
                         )
                         is_changed = True
                         loginfo(f'RDS IP白名单分组{CFG_RDS_A["ArrayName"]}成功修改为：{ip}')
+                        print(f'RDS IP白名单分组{CFG_RDS_A["ArrayName"]}成功修改为：{ip}')
                     else:
                         break
         except Exception as e:
@@ -101,12 +104,14 @@ def update_dns(ip):
                     )
                     is_changed = True
                     loginfo(f'{rr}.{domain_name}的记录值成功修改为：{ip}')
+                    print(f'{rr}.{domain_name}的记录值成功修改为：{ip}')
 
                 # else:
                 #     break
             except Exception as e:
                 logerr(e.message)
     return is_changed
+
 
 if __name__ == '__main__':
     # update_rds(CFG_RDS_M['DBInstanceIds'], CFG_RDS_M['ArrayName'])
