@@ -69,6 +69,42 @@ def update_rds(ip):
     return is_changed
 
 
+def update_rds_manual_one_times(ip):
+    # 是否修改了IP
+    is_changed = False
+
+    # 访问的域名
+    aliyun_config.endpoint = f'rds.aliyuncs.com'
+    client = Rds20140815Client(aliyun_config)
+    runtime = util_models.RuntimeOptions(read_timeout=5000, connect_timeout=3000)
+
+    for instance in CFG_RDS_M['DBInstanceIds']:
+        try:
+            r = client.describe_dbinstance_iparray_list_with_options(
+                rds_20140815_models.DescribeDBInstanceIPArrayListRequest(dbinstance_id=instance),
+                runtime
+            )
+            for i in r.body.items.dbinstance_iparray:
+                if i.dbinstance_iparray_name == CFG_RDS_M['ArrayName']:
+                    if i.security_iplist != ip:
+                        rsp = client.modify_security_ips_with_options(
+                            rds_20140815_models.ModifySecurityIpsRequest(
+                                dbinstance_id=instance,
+                                security_ips=ip,
+                                dbinstance_iparray_name=CFG_RDS_M['ArrayName']
+                            ),
+                            runtime
+                        )
+                        is_changed = True
+                        loginfo(f'RDS IP白名单分组{CFG_RDS_M["ArrayName"]}成功修改为：{ip}')
+                        print(f'RDS IP白名单分组{CFG_RDS_M["ArrayName"]}成功修改为：{ip}')
+                    else:
+                        break
+        except Exception as e:
+            logerr(e.message)
+    return is_changed
+
+
 def update_dns(ip):
     # 是否修改了IP
     is_changed = False
@@ -115,4 +151,8 @@ def update_dns(ip):
 
 if __name__ == '__main__':
     # update_rds(CFG_RDS_M['DBInstanceIds'], CFG_RDS_M['ArrayName'])
-    update_dns('8.8.8.8')
+    # update_dns('8.8.8.8')
+
+    # 手动更新一次RDS
+    update_rds_manual_one_times(get_ip())
+
