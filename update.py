@@ -125,7 +125,8 @@ def update_dns(ip):
                     alidns_20150109_models.DescribeDomainRecordsRequest(
                         domain_name=domain_name,
                         key_word=rr,
-                        type='A'
+                        type='A',
+                        search_mode='EXACT'
                     ),
                     util_models.RuntimeOptions(read_timeout=5000, connect_timeout=3000)
                 )
