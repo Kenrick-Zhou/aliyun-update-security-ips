@@ -65,7 +65,8 @@ def update_rds(ip):
                     else:
                         break
         except Exception as e:
-            logerr(e.message)
+            logerr(f'RDS IP白名单分组{CFG_RDS_A["ArrayName"]}修改失败，错误信息：{e}')
+            print(f'RDS IP白名单分组{CFG_RDS_A["ArrayName"]}修改失败，错误信息：{e}')
     return is_changed
 
 
@@ -123,7 +124,8 @@ def update_dns(ip):
                 r = client.describe_domain_records_with_options(
                     alidns_20150109_models.DescribeDomainRecordsRequest(
                         domain_name=domain_name,
-                        rrkey_word=rr
+                        key_word=rr,
+                        type='A'
                     ),
                     util_models.RuntimeOptions(read_timeout=5000, connect_timeout=3000)
                 )
@@ -145,7 +147,8 @@ def update_dns(ip):
                 # else:
                 #     break
             except Exception as e:
-                logerr(e.message)
+                logerr(f'{rr}.{domain_name}的记录值修改失败，错误信息：{e}')
+                print(f'{rr}.{domain_name}的记录值修改失败，错误信息：{e}')  # 打印错误信息
     return is_changed
 
 

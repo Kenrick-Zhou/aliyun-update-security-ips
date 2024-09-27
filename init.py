@@ -8,12 +8,16 @@ import yaml
 from pypushdeer import PushDeer
 from alibabacloud_tea_openapi import models as open_api_models
 
+from dotenv import load_dotenv, find_dotenv
+
+load_dotenv(find_dotenv())
+
 ############################################
 # 读取配置文件
 yamlPath = f'{os.path.split(os.path.realpath(__file__))[0]}/config.yml'
 with open(yamlPath, 'rb') as f:
     _config = yaml.safe_load(f)
-    CFG_ALY = _config['Aliyun']
+    # CFG_ALY = _config['Aliyun']
     CFG_INTERVAL = _config['check_interval']
     CFG_DNS = _config['DNS']['Domain_and_RR']
     CFG_RDS_A = _config['RDS']['AutoUpdate']
@@ -32,7 +36,10 @@ with open(yamlPath, 'rb') as f:
 
 ############################################
 # 阿里云Aliyun的配置
-aliyun_config = open_api_models.Config(access_key_id=CFG_ALY['AK'], access_key_secret=CFG_ALY['SK'])
+aliyun_config = open_api_models.Config(
+    access_key_id=os.getenv('ALY_AK'),
+    access_key_secret=os.getenv('ALY_SK')
+)
 
 
 ############################################

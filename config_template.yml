@@ -1,7 +1,3 @@
-Aliyun:
-  AK: xxx  # Access Key ID
-  SK: xxx  # Access Key Secret
-
 check_interval: 100  # 检查间隔（秒）
 
 DNS:
