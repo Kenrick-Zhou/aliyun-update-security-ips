@@ -3,7 +3,7 @@
 <div align="center">
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python Version](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/downloads/)
+[![Python Version](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![GitHub Stars](https://img.shields.io/github/stars/Kenrick-Zhou/aliyun-update-security-ips?style=social)](https://github.com/Kenrick-Zhou/aliyun-update-security-ips/stargazers)
 [![GitHub Forks](https://img.shields.io/github/forks/Kenrick-Zhou/aliyun-update-security-ips?style=social)](https://github.com/Kenrick-Zhou/aliyun-update-security-ips/network/members)
 [![GitHub Issues](https://img.shields.io/github/issues/Kenrick-Zhou/aliyun-update-security-ips)](https://github.com/Kenrick-Zhou/aliyun-update-security-ips/issues)
