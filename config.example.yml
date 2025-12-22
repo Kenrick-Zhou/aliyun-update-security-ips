@@ -19,6 +19,16 @@ RDS:
     DBInstanceIds: # 要修改的RDS实例ID
       *all_instance
 
+Tair:
+  AutoUpdate:  # 自动定时更新配置
+    GroupName: home  # 安全IP白名单分组名称（要提前创建好）
+    InstanceIds: &all_tair_instance  # 要修改的Tair(Redis)实例ID
+      - r-xxx
+  ManualUpdate:  # 手动更新配置
+    GroupName: my
+    InstanceIds: # 要修改的Tair(Redis)实例ID
+      *all_tair_instance
+
 IPCheckList:  # 查看本机公网IP的网址
   - https://ip.clang.cn/
   - http://icanhazip.com

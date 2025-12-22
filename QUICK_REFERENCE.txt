@@ -1,0 +1,78 @@
+┌─────────────────────────────────────────────────────────────────┐
+│                                                                 │
+│   🚀 ALIYUN IP WHITELIST UPDATER - QUICK REFERENCE             │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+
+📦 INSTALLATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ./install.sh                    # Auto setup
+  make setup && make install      # Manual setup
+
+⚙️  CONFIGURATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  1. Edit .env          → Add AccessKey
+  2. Edit config.yml    → Configure instances
+  3. python update.py   → Test
+
+🎯 USAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Manual Mode:
+    python update.py
+    make run-manual
+
+  Daemon Mode:
+    make run-daemon      # Start background
+    make check-daemon    # Check status
+    make stop-daemon     # Stop daemon
+
+🛠️  DEVELOPMENT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  make install-dev     # Install dev tools
+  make lint            # Check code
+  make format          # Format code
+  make test            # Run tests
+
+📚 DOCUMENTATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  README.md           → Main documentation
+  FAQ.md              → Common questions
+  CONTRIBUTING.md     → How to contribute
+  ROADMAP.md          → Future plans
+  SECURITY.md         → Security policy
+
+🔗 IMPORTANT LINKS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Issues:    github.com/Kenrick-Zhou/aliyun-update-security-ips/issues
+  Releases:  github.com/Kenrick-Zhou/aliyun-update-security-ips/releases
+  Wiki:      github.com/Kenrick-Zhou/aliyun-update-security-ips/wiki
+
+💡 TIPS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  • Never commit .env file
+  • Create whitelist groups before use
+  • Set reasonable check intervals (60-300s)
+  • Monitor logs regularly
+  • Rotate AccessKey periodically
+
+⚠️  TROUBLESHOOTING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Cannot get IP?
+    → Check network connection
+    → Try different IP check services
+
+  AccessKey error?
+    → Verify credentials in .env
+    → Check AccessKey permissions
+
+  Instance not found?
+    → Verify instance ID format
+    → Check region configuration
+
+  See FAQ.md for more solutions
+
+┌─────────────────────────────────────────────────────────────────┐
+│  ⭐ Star us on GitHub if this helps you!                        │
+│  🐛 Found a bug? Open an issue!                                 │
+│  💡 Have an idea? We'd love to hear it!                         │
+└─────────────────────────────────────────────────────────────────┘
