@@ -4,6 +4,6 @@ alibabacloud-r-kvstore20150101>=2.0.0
 alibabacloud_tea_openapi==0.3.7
 alibabacloud_tea_util==0.3.8
 alibabacloud_tea==0.2.9
-PyYAML==6.0
+PyYAML>=6.0.1
 python-dotenv==1.0.1
 requests==2.31.0
